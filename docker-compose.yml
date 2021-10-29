@@ -1,0 +1,37 @@
+version: "3.8"
+
+networks:
+  poc_nextar_network:
+    driver: bridge
+    #external: true
+
+services:
+  # Postgres 
+  #----------------------------------------------------------------------------------  
+  postgres:  
+    image: postgres:13.1    
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: nextar      
+      POSTGRES_PASSWORD: 123
+      POSTGRES_HOST_AUTH_METHOD: trust
+    ports:
+      - "54322:5432"
+    #volumes:
+    #   - ./postgres/pg_data:/var/lib/postgresql/data    
+    #   #Ativar os arquivos de configurações '*.conf' após existir a pasta pg_data, caso contrário ocorrerá um erro na inicialização   
+    #   - ./postgres/config/pg_hba.conf:/var/lib/postgresql/data/pg_hba.conf    
+    #  - .docker/postgres/config/postgresql.conf:/var/lib/postgresql/data/postgresql.conf
+    networks:
+      - poc_nextar_network
+    deploy:
+      resources:
+        limits:
+          #permite o docker 100% de um núcleo / cpus:2 = pode usar até 2 núcleos 100%
+          cpus: 1
+          memory: 256M        
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -p 5432"]
+      interval: 15s
+      timeout: 5s
+      retries: 5

@@ -1,12 +1,12 @@
 {
    "type": "pg",
    "host": "localhost",
-   "port": 3306,
-   "username": "test",
-   "password": "test",
-   "database": "test",   
+   "port": 54322,
+   "username": "nextar",
+   "password": "123",
+   "database": "nextar",   
    "synchronize": true,
-   "logging": false,
+   "logging": true,
    "entities": [      
       "src/domain/entities/**/*.ts"
    ],
