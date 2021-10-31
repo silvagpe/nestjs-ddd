@@ -7,7 +7,7 @@ class Store{
     Guid Id
     bool Active
     string Email        
-    DateTime RegistredAt
+    DateTime RegistredAt    
     Invoice[] Invoices
 }
 

@@ -4,18 +4,18 @@ import {Entity, PrimaryGeneratedColumn, Column} from "typeorm";
 // https://github.com/kelvin-mai/nest-space-exlporer
 // https://www.youtube.com/watch?v=Jx-3uMnMuPU
 @Entity()
-export class User {
+export class Store {
 
     @PrimaryGeneratedColumn("uuid")
     id: string;
 
     @Column()
-    firstName: string;
+    active: boolean;
 
     @Column()
-    lastName: string;
+    email: string;
 
     @Column()
-    age: number;
+    registredAt: Date;
 
 }
