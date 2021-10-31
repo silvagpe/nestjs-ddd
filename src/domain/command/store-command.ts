@@ -1,5 +1,11 @@
+import { ApiProperty } from "@nestjs/swagger";
+
 export class StoreCommand {
-    id: string;
-    active: boolean;
-    email: string;
+
+    @ApiProperty()
+    public id: string;
+    @ApiProperty()
+    public active: boolean;
+    @ApiProperty()
+    public email: string;
 }
