@@ -1,4 +1,5 @@
-import {Entity, PrimaryGeneratedColumn, Column} from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { StoreCommand } from "../command/store-command";
 
 
 // https://github.com/kelvin-mai/nest-space-exlporer
@@ -18,4 +19,25 @@ export class Store {
     @Column()
     registredAt: Date;
 
+    // constructor(init?: Partial<Store>) {
+
+    //     if (init) {
+    //         Object.assign(this, init);
+    //     } else {
+    //         this.registredAt = new Date();
+    //     }
+    // }
+
+    /**
+     *
+     */
+
+    public New(command : StoreCommand){
+        Object.assign(this, command);
+        this.registredAt = new Date();
+    } 
+
+    public Update(command : StoreCommand){
+        Object.assign(this, command);
+    } 
 }
