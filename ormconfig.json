@@ -11,14 +11,14 @@
       "src/domain/entities/**/*.ts"
    ],
    "migrations": [      
-      "src/intrastructure/migration/**/*.ts"
+      "src/infrastructure/migration/**/*.ts"
    ],
    "subscribers": [
-      "src/intrastructure/subscriber/**/*.ts"
+      "src/infrastructure/subscriber/**/*.ts"
    ],
    "cli": {
-      "entitiesDir": "src/domain/entity",
-      "migrationsDir": "src/intrastructure/migration",
-      "subscribersDir": "src/intrastructure/subscriber"
+      "entitiesDir": "src/domain/entities",
+      "migrationsDir": "src/infrastructure/migration",
+      "subscribersDir": "src/infrastructure/subscriber"
    }
 }

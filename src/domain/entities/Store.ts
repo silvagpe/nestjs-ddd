@@ -1,11 +1,11 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, BaseEntity } from "typeorm";
 import { StoreCommand } from "../command/store-command";
 
 
 // https://github.com/kelvin-mai/nest-space-exlporer
 // https://www.youtube.com/watch?v=Jx-3uMnMuPU
 @Entity()
-export class Store {
+export class Store extends BaseEntity{
 
     @PrimaryGeneratedColumn("uuid")
     id: string;

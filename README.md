@@ -73,3 +73,13 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 Nest is [MIT licensed](LICENSE).
 
 
+## Migrations
+
+### Criar uma migrations
+```bash
+
+#Criar uma migration
+typeorm migration:create -n stores
+
+#Reverter uma migrations
+```
