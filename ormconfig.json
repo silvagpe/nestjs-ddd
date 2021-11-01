@@ -5,20 +5,21 @@
    "username": "nextar",
    "password": "123",
    "database": "nextar",   
-   "synchronize": true,
+   "synchronize": false,
+   "migrationsRun": true,
    "logging": true,
    "entities": [             
-      "src/domain/entities/**/*.ts"
+      "dist/domain/entities/**/*.js"
    ],
    "migrations": [      
-      "src/infrastructure/migration/**/*.ts"
+      "dist/infrastructure/migration/**/*.js"
    ],
    "subscribers": [
-      "src/infrastructure/subscriber/**/*.ts"
+      "dist/infrastructure/subscriber/**/*.js"
    ],
    "cli": {
-      "entitiesDir": "src/domain/entities",
-      "migrationsDir": "src/infrastructure/migration",
+      "entitiesDir": "dist/domain/entities",
+      "migrationsDir": "dist/infrastructure/migration",
       "subscribersDir": "src/infrastructure/subscriber"
    }
 }

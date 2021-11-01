@@ -78,8 +78,14 @@ Nest is [MIT licensed](LICENSE).
 ### Criar uma migrations
 ```bash
 
-#Criar uma migration
+#Criar uma migration vazia
 typeorm migration:create -n stores
+
+#Gera as migration com base na entidade
+typeorm migration:generate -n stores
+
+#Gera as migration com base na entidade
+typeorm migration:generate -n stores
 
 #Reverter uma migrations
 ```

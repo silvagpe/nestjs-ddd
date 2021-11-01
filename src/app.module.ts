@@ -5,10 +5,10 @@ import { DomainModule } from './domain/domain.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 @Module({
   imports: [
+    TypeOrmModule.forRoot(),
     ApiModule,
     DomainModule,
     InfrastructureModule,    
-    TypeOrmModule.forRoot()
     ],  
 })
 export class AppModule {}
