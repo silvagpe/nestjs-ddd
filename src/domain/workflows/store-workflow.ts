@@ -1,10 +1,10 @@
-import { Injectable } from "@nestjs/common";
+import { Injectable, Scope } from "@nestjs/common";
 import { StoreCommand } from "../commands/store-command";
 import { IStoreRepository } from "../contracts/istore-repository";
 import { Store } from "../entities/store";
 import { WorkflowBase } from "./workflow-base";
 
-@Injectable()
+@Injectable({scope: Scope.REQUEST})
 export class StoreWorkflow extends WorkflowBase {
 
     constructor(private readonly storeRepository: IStoreRepository) {
