@@ -16,12 +16,12 @@ export class Store extends BaseEntity{
     @Column()
     registredAt: Date;
 
-    public New(command : StoreCommand){
+    public new(command : StoreCommand){
         Object.assign(this, command);
         this.registredAt = new Date();
     } 
 
-    public Update(command : StoreCommand){
+    public update(command : StoreCommand){
         Object.assign(this, command);
     } 
 }

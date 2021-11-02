@@ -3,6 +3,11 @@ import { WorkflowError } from "./workflow-error";
 
 export class ErrorTracker {
     private readonly _errors: WorkflowError[] = [];
+    
+
+    constructor() {
+        this._errors = [];
+    }
 
     public get Errors(): WorkflowError[] {
         return this._errors;
