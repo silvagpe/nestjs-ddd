@@ -15,40 +15,45 @@ export class StoresController {
     ) { }
 
     @Get()
-    get(@Query('search') search: string): Store[] {
+    get(@Query('search') search: string): Promise<Store[]> {
 
         return this.storeRepository.query(search);
     }
 
     @Get(":id")
-    getById(@Param('id') id: string): Store {
+    async getById(@Param('id') id: string): Promise<Store> {
         return this.storeRepository.getById(id);
     }
-    
+
     @Post()
-    add(@Body() command: StoreCommand): any {
-        this.storeWorkflow.add(command);
-        if (this.storeWorkflow.isValid) {
-            return true;
-        }                
-        throw new BadRequestException(this.storeWorkflow.Errors);
+    async add(@Body() command: StoreCommand): Promise<any> {
+        return this.storeWorkflow
+            .add(command)
+            .then(() => { return true })
+            .catch(() => {
+                throw new BadRequestException(this.storeWorkflow.Errors);
+            })
     }
 
     @Put(":id")
-    update(@Param('id') id: string, @Body() command: StoreCommand): any {
-        this.storeWorkflow.update(command); 
-        if (this.storeWorkflow.isValid) {
-            return true;
-        }
-        throw new BadRequestException(this.storeWorkflow.Errors);
+    async update(@Param('id') id: string, @Body() command: StoreCommand): Promise<any> {
+
+        return this.storeWorkflow
+            .update(command)
+            .then(() => { return true })
+            .catch(() => {
+                throw new BadRequestException(this.storeWorkflow.Errors);
+            })
     }
 
     @Delete(":id")
-    delete(@Param('id') id: string): any {
-        this.storeWorkflow.delete(id);
-        if (this.storeWorkflow.isValid) {
-            return true;
-        }
-        throw new BadRequestException(this.storeWorkflow.Errors);
+    async delete(@Param('id') id: string): Promise<any> {
+
+        return this.storeWorkflow
+            .delete(id)
+            .then(() => { return true })
+            .catch(() => {
+                throw new BadRequestException(this.storeWorkflow.Errors);
+            })
     }
 }

@@ -4,7 +4,7 @@ import { IStoreRepository } from "../contracts/istore-repository";
 import { Store } from "../entities/store";
 import { WorkflowBase } from "./workflow-base";
 
-@Injectable({scope: Scope.REQUEST})
+@Injectable({ scope: Scope.REQUEST })
 export class StoreWorkflow extends WorkflowBase {
 
     constructor(private readonly storeRepository: IStoreRepository) {
@@ -23,17 +23,17 @@ export class StoreWorkflow extends WorkflowBase {
             const store = new Store();
             store.new(command);
 
-            return this.storeRepository.add(store);
+            return this.storeRepository.save(store);
         } catch (error) {
             this.addError("Add", "Não foi possível inserir a loja");
         }
     }
 
-    public update(command: StoreCommand) {
+    public async update(command: StoreCommand) {
 
         this.validateStore(command);
 
-        const store = this.storeRepository.getById(command.id);
+        const store = await this.storeRepository.getById(command.id);
         if (!store) {
             this.addError("Store", "Loja não localizada", command.email);
         }
@@ -44,7 +44,7 @@ export class StoreWorkflow extends WorkflowBase {
 
         try {
             store.update(command);
-            return this.storeRepository.update(store);
+            return this.storeRepository.save(store);
         } catch (error) {
             this.addError("Update", "Não foi possível atualizar a loja");
         }
@@ -56,15 +56,15 @@ export class StoreWorkflow extends WorkflowBase {
         }
     }
 
-    public delete(id:string) {
-        
-        const store = this.storeRepository.getById(id);
+    public async delete(id: string):Promise<Store> {
+
+        const store = await this.storeRepository.getById(id);
         if (!store) {
             this.addError("Store", "Loja não localizada", id);
         }
 
         if (!this.isValid) {
-            return;
+            return Promise.reject();
         }
 
         try {

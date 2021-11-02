@@ -1,5 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column, BaseEntity } from "typeorm";
 import { StoreCommand } from "../commands/store-command";
+import { v4 as uuidv4 } from 'uuid';
 
 @Entity()
 export class Store extends BaseEntity{
@@ -18,6 +19,7 @@ export class Store extends BaseEntity{
 
     public new(command : StoreCommand){
         Object.assign(this, command);
+        this.id = !command.id ? uuidv4() : command.id
         this.registredAt = new Date();
     } 
 
