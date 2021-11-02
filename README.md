@@ -84,8 +84,29 @@ typeorm migration:create -n stores
 #Gera as migration com base na entidade
 typeorm migration:generate -n stores
 
-#Gera as migration com base na entidade
-typeorm migration:generate -n stores
+#Executa uma migration
+typeorm migration:run
 
 #Reverter uma migrations
+typeorm migration:revert
 ```
+
+## Nest Generate 
+```bash
+
+#Criar um módulo
+nest g mo nome_modulo   
+
+#Criar um controller
+nest g co api/controllers/auth/auth
+#         ^--------PATH-------^-Controller name-^
+#  path = api/controllers/auth/
+#  controller name = auth
+```
+
+
+
+## Referências
+
+https://www.youtube.com/watch?v=Jx-3uMnMuPU
+https://github.com/kelvin-mai/nest-space-exlporer

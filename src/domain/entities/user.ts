@@ -2,7 +2,7 @@ import { Entity, PrimaryGeneratedColumn, Column, BaseEntity } from "typeorm";
 import { StoreCommand } from "../commands/store-command";
 
 @Entity()
-export class Store extends BaseEntity{
+export class User extends BaseEntity{
 
     @PrimaryGeneratedColumn("uuid")
     id: string;
@@ -12,6 +12,9 @@ export class Store extends BaseEntity{
 
     @Column()
     email: string;
+    
+    @Column()
+    password: string;
 
     @Column()
     registredAt: Date;

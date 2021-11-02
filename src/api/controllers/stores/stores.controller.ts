@@ -1,5 +1,5 @@
 import { Body, Controller, Param, Post, Put } from '@nestjs/common';
-import { StoreCommand } from 'src/domain/command/store-command';
+import { StoreCommand } from 'src/domain/commands/store-command';
 
 @Controller('api/v1/stores')
 export class StoresController {

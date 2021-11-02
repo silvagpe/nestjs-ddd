@@ -3,12 +3,21 @@ import { AppModule } from './app.module';
 //import "reflect-metadata";
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { createConnection } from "typeorm";
+import { PostgresConnectionOptions } from 'typeorm/driver/postgres/PostgresConnectionOptions';
 
 async function bootstrap() {
 
   createConnection()
     .then(async connection => {
       console.log(`Database connection status: ${connection.isConnected}`);
+      
+      const connectionOptions:PostgresConnectionOptions = connection.options as PostgresConnectionOptions;
+      if (connectionOptions){        
+        console.log(`Database connection host: ${connectionOptions.host}`);
+        console.log(`Database connection name: ${connectionOptions.database}`);
+      }
+      
+      
     })
     .catch(error => console.log(error));
 
