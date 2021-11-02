@@ -1,19 +1,24 @@
 import { Entity, PrimaryGeneratedColumn, Column, BaseEntity } from "typeorm";
 import { StoreCommand } from "../commands/store-command";
 import { v4 as uuidv4 } from 'uuid';
+import { ApiProperty } from "@nestjs/swagger";
 
 @Entity()
 export class Store extends BaseEntity{
 
     @PrimaryGeneratedColumn("uuid")
+    @ApiProperty()
     id: string;
 
+    @ApiProperty()
     @Column()
     active: boolean;
 
+    @ApiProperty()
     @Column()
     email: string;
 
+    @ApiProperty()
     @Column()
     registredAt: Date;
 

@@ -9,7 +9,7 @@ import { StoresController } from './controllers/stores/stores.controller';
 
 
 @Module({
-  controllers: [ApplicationController, StoresController, AuthController],
+  controllers: [ApplicationController, AuthController, StoresController],
   providers:[    
     ...Bootstrap.registerRepositories(),
     ...Bootstrap.registerWorkflows()    

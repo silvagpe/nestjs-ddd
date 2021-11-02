@@ -25,7 +25,7 @@ async function bootstrap() {
 
 
   const config = new DocumentBuilder()
-    .setTitle('Poc exemple')
+    .setTitle('Poc example')
     .setDescription('The API description ')
     .setVersion('1.0')
     .addTag('poc')

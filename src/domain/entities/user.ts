@@ -1,9 +1,10 @@
 import { Entity, PrimaryGeneratedColumn, Column, BaseEntity } from "typeorm";
-import { StoreCommand } from "../commands/store-command";
 import { v4 as uuidv4 } from 'uuid';
+import { RegisterUserCommand } from "../commands/register-user-command";
+import { Md5 } from 'ts-md5/dist/md5';
 
 @Entity()
-export class User extends BaseEntity{
+export class User extends BaseEntity {
 
     @PrimaryGeneratedColumn("uuid")
     id: string;
@@ -13,20 +14,26 @@ export class User extends BaseEntity{
 
     @Column()
     email: string;
-    
+
     @Column()
     password: string;
 
     @Column()
     registredAt: Date;
 
-    public new(command : StoreCommand){
+    public register(command: RegisterUserCommand) {
         Object.assign(this, command);
-        this.id = !command.id ? uuidv4() : command.id
-        this.registredAt = new Date();
-    } 
+        this.id = uuidv4()
 
-    public update(command : StoreCommand){
-        Object.assign(this, command);
-    } 
+        this.password = Md5.hashStr(`${command.email}:${command.password}`);
+        
+        //TODO: Revisar como ativar o cliente 
+        this.active = true;
+        
+        this.registredAt = new Date();
+    }
+
+    public updatePassword(password: string) {
+        this.password = password;
+    }
 }

@@ -10,9 +10,9 @@ export class UserResult {
     @ApiProperty()
     public email: string;
     
-    constructor(init?: Partial<User>) {
-        if (init) {
-            Object.assign(this, init);
-        }
+    constructor(user: User) {
+        this.id = user.id
+        this.active = user.active
+        this.email = user.email
     }
 }

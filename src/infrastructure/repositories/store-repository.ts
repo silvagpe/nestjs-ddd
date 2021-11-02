@@ -16,8 +16,7 @@ export class StoreRepository implements IStoreRepository {
             .where("email = :email", { email })
             .getOne()
     }
-    getAll(): Store[] {
-        console.log("getAll");
+    getAll(): Store[] {        
         return []
     }
 

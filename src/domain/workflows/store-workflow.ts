@@ -16,7 +16,7 @@ export class StoreWorkflow extends WorkflowBase {
         this.validateStore(command);
 
         if (!this.isValid) {
-            return;
+            return Promise.reject();
         }
 
         try {
@@ -39,7 +39,7 @@ export class StoreWorkflow extends WorkflowBase {
         }
 
         if (!this.isValid) {
-            return;
+            return Promise.reject();
         }
 
         try {
