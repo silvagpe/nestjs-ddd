@@ -95,7 +95,7 @@ typeorm migration:revert
 ```bash
 
 #Criar um módulo
-nest g mo nome_modulo   
+nest g mo nome_modulo
 
 #Criar um controller
 nest g co api/controllers/auth/auth

@@ -1,4 +1,5 @@
-import { BadRequestException, Body, Controller, Post } from '@nestjs/common';
+import { BadRequestException, Body, Controller, Post, UseGuards } from '@nestjs/common';
+import { LocalAuthGuard } from 'src/auth/guards/local-auth.guard';
 import { LoginCommand } from 'src/domain/commands/login-command';
 import { RegisterUserCommand } from 'src/domain/commands/register-user-command';
 import { IUserRepository } from 'src/domain/contracts/iuser-repository';
@@ -23,6 +24,7 @@ export class AuthController {
             })
     }
 
+    @UseGuards(LocalAuthGuard)
     @Post("/login")
     async login(@Body() command: LoginCommand): Promise<UserResult> {
         return this.userWorkflow

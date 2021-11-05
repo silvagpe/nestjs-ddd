@@ -7,16 +7,8 @@ import { Md5 } from 'ts-md5/dist/md5';
 export class UserRepository implements IUserRepository {
     login(email: string, password: string): Promise<User> {
 
-
-
-        const auth = Md5.hashStr(`${email}:${password}`)
-        // crypto
-        //     .createHash("md5")
-        //     .update(`${email}:${password}`)
-        //     .digest('hex');
-
-        console.log(auth);
-
+        const auth = Md5.hashStr(`${email}:${password}`)        
+        
         return User
             .getRepository()
             .createQueryBuilder()

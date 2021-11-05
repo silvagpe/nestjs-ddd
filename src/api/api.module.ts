@@ -4,7 +4,7 @@ import { StoreWorkflow } from 'src/domain/workflows/store-workflow';
 import { StoreRepository } from 'src/infrastructure/repositories/store-repository';
 import { Bootstrap } from './boostrap';
 import { ApplicationController } from './controllers/application/application.controller';
-import { AuthController } from './controllers/auth/auth/auth.controller';
+import { AuthController } from './controllers/auth/auth.controller';
 import { StoresController } from './controllers/stores/stores.controller';
 
 
