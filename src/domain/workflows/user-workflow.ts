@@ -1,7 +1,7 @@
 import { Injectable, Scope } from "@nestjs/common";
 import { LoginCommand } from "../commands/login-command";
 import { RegisterUserCommand } from "../commands/register-user-command";
-import { IUserRepository } from "../contracts/iuser-repository";
+import { IUserRepository } from "../contracts/repositories/iuser-repository";
 import { User } from "../entities/user";
 import { UserResult } from "../results/user-result";
 import { WorkflowBase } from "./workflow-base";

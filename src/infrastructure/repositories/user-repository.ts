@@ -1,5 +1,5 @@
 import { Injectable } from "@nestjs/common";
-import { IUserRepository } from "src/domain/contracts/iuser-repository";
+import { IUserRepository } from "src/domain/contracts/repositories/iuser-repository";
 import { User } from "src/domain/entities/user";
 import { Md5 } from 'ts-md5/dist/md5';
 

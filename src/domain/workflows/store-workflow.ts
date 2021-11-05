@@ -1,6 +1,6 @@
 import { Injectable, Scope } from "@nestjs/common";
 import { StoreCommand } from "../commands/store-command";
-import { IStoreRepository } from "../contracts/istore-repository";
+import { IStoreRepository } from "../contracts/repositories/istore-repository";
 import { Store } from "../entities/store";
 import { WorkflowBase } from "./workflow-base";
 

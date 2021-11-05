@@ -1,4 +1,4 @@
-import { User } from "../entities/user";
+import { User } from "src/domain/entities/user";
 
 export abstract class IUserRepository {
     abstract getById(id:string):Promise<User>

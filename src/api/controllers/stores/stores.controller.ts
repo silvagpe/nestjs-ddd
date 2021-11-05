@@ -1,6 +1,6 @@
 import { BadRequestException, Body, Controller, Delete, Get, HttpCode, HttpStatus, Param, Post, Put, Query, Res } from '@nestjs/common';
 import { StoreCommand } from 'src/domain/commands/store-command';
-import { IStoreRepository } from 'src/domain/contracts/istore-repository';
+import { IStoreRepository } from 'src/domain/contracts/repositories/istore-repository';
 import { Store } from 'src/domain/entities/store';
 import { StoreWorkflow } from 'src/domain/workflows/store-workflow';
 

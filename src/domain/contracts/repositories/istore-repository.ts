@@ -1,4 +1,4 @@
-import { Store } from "../entities/store";
+import { Store } from "../../entities/store";
 
 export abstract class IStoreRepository {
     abstract getById(id:string):Promise<Store>

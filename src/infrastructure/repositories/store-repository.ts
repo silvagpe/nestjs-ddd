@@ -1,6 +1,6 @@
 import { Store } from "src/domain/entities/store";
-import { IStoreRepository } from "src/domain/contracts/istore-repository"
 import { Injectable } from "@nestjs/common";
+import { IStoreRepository } from "src/domain/contracts/repositories/istore-repository";
 
 @Injectable()
 export class StoreRepository implements IStoreRepository {
