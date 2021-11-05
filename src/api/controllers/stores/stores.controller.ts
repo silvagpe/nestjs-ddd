@@ -37,7 +37,7 @@ export class StoresController {
     async update(@Param('id') id: string, @Body() command: StoreCommand): Promise<any> {
 
         return this.storeWorkflow
-            .update(command)
+            .update(id, command)
             .then(() => { return true })
             .catch(() => {
                 throw new BadRequestException(this.storeWorkflow.Errors);

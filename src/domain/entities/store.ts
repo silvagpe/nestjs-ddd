@@ -8,7 +8,7 @@ export class Store extends BaseEntity{
 
     @PrimaryGeneratedColumn("uuid")
     @ApiProperty()
-    id: string;
+    id: string;    
 
     @ApiProperty()
     @Column()

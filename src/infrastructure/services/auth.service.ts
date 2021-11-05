@@ -26,4 +26,6 @@ export class AuthService implements IAuthService {
       access_token: this.jwtService.sign(payload),
     };
   }
+
+  
 }
