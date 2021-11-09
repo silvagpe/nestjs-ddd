@@ -6,7 +6,7 @@
    "password": "123",
    "database": "nextar",   
    "synchronize": false,
-   "migrationsRun": false,
+   "migrationsRun": true,
    "logging": true,
    "entities": [             
       "dist/domain/entities/**/*.js"
