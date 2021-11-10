@@ -9,7 +9,7 @@ export class ApplicationController {
         return "pong";
     }
 
-    @Get('/health')
+    @Get('health')
     getInfo(): any {
         return {
             "status": "ok",
