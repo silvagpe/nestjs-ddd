@@ -15,6 +15,11 @@ export class StoreWorkflow extends WorkflowBase {
 
         this.validateStore(command);
 
+        const storeExist = this.storeRepository.getByEmail(command.email)
+        if (storeExist){
+            this.addError("email", "email já utilizado")
+        }
+
         if (!this.isValid) {
             return Promise.reject();
         }
