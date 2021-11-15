@@ -110,3 +110,21 @@ nest g co api/controllers/auth/auth
 
 https://www.youtube.com/watch?v=Jx-3uMnMuPU
 https://github.com/kelvin-mai/nest-space-exlporer
+
+
+## DDD Referências
+
+Projetar um microsserviço orientado a DDD
+https://docs.microsoft.com/pt-br/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/ddd-oriented-microservice
+
+Projetar um modelo de domínio de microsserviço
+https://docs.microsoft.com/pt-br/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/microservice-domain-model
+
+Eventos de domínio: design e implementação
+https://docs.microsoft.com/pt-br/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/domain-events-design-implementation
+
+Implementar um modelo de domínio de microatendimento com o .NET
+https://docs.microsoft.com/pt-br/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/net-core-microservice-domain-model
+
+Uma arquitetura, em .Net Core, baseada nos princípios do DDD
+https://alexalvess.medium.com/criando-uma-api-em-net-core-baseado-na-arquitetura-ddd-2c6a409c686
