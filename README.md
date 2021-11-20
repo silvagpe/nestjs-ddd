@@ -128,3 +128,9 @@ https://docs.microsoft.com/pt-br/dotnet/architecture/microservices/microservice-
 
 Uma arquitetura, em .Net Core, baseada nos princípios do DDD
 https://alexalvess.medium.com/criando-uma-api-em-net-core-baseado-na-arquitetura-ddd-2c6a409c686
+
+ApiKey Authentication for NestJS using Passport JS
+https://medium.com/@Dee_Mayoor/apikey-authentication-for-nestjs-using-passport-js-6db467fc31f7
+
+Passport-LocalAPIKey
+http://www.passportjs.org/packages/passport-headerapikey/
