@@ -28,7 +28,7 @@ services:
       resources:
         limits:
           #permite o docker 100% de um núcleo / cpus:2 = pode usar até 2 núcleos 100%
-          cpus: 1
+          cpus: "1"
           memory: 256M        
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -p 5432"]

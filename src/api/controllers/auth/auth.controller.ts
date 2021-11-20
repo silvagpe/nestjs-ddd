@@ -1,4 +1,5 @@
 import { BadRequestException, Body, Controller, Post, UseGuards, Request, Get } from '@nestjs/common';
+import { ApiKeyGuard } from 'src/api/auth/guards/apikey.guard';
 import { JwtAuthGuard } from 'src/api/auth/guards/jwt-auth.guard';
 import { LocalAuthGuard } from 'src/api/auth/guards/local-auth.guard';
 import { RegisterUserCommand } from 'src/domain/commands/register-user-command';
@@ -39,6 +40,15 @@ export class AuthController {
     @Get('profile')
     getProfile(@Request() req) {
         console.log("profile", req.user)
+        return req.user;
+    }
+
+    @UseGuards(ApiKeyGuard)
+    @Get('apikey')
+    getInfo(@Request() req) {
+
+        console.log("apikey", req.user)
+        
         return req.user;
     }
     // async login(@Body() command: LoginCommand): Promise<boolean> {

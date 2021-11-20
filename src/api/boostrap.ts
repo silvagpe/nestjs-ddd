@@ -6,6 +6,7 @@ import { UserWorkflow } from "src/domain/workflows/user-workflow";
 import { StoreRepository } from "src/infrastructure/repositories/store-repository";
 import { UserRepository } from "src/infrastructure/repositories/user-repository";
 import { AuthService } from "src/infrastructure/services/auth.service";
+import { ApiKeyStrategy } from "./auth/strategies/apikey,strategy";
 import { JwtStrategy } from "./auth/strategies/jwt.strategy";
 import { LocalStrategy } from "./auth/strategies/local.strategy";
 
@@ -30,6 +31,6 @@ export class Bootstrap {
     }
 
     public static registerAuthStrategies() {
-        return [LocalStrategy, JwtStrategy]
+        return [LocalStrategy, JwtStrategy, ApiKeyStrategy]
     }
 }

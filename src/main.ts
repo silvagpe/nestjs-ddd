@@ -19,7 +19,7 @@ async function bootstrap() {
       
       
     })
-    .catch(error => console.log(error));
+    .catch(error => console.log("createConnection",error));
 
   const app = await NestFactory.create(AppModule);
 
