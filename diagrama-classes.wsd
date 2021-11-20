@@ -2,6 +2,7 @@
 
 
 Store -- Invoice
+Store -- User
 
 class Store{
     Guid Id
@@ -9,6 +10,7 @@ class Store{
     string Email        
     DateTime RegistredAt    
     Invoice[] Invoices
+    User user
 }
 
 class Invoice{
@@ -17,5 +19,12 @@ class Invoice{
     DateTime PaiedAt
     DateTime ExpirationAt
     Decimal Amount
+    Decimal Discount
+}
+
+class User{
+    Guid Id
+    bool Active
+    string Email            
 }
 @enduml

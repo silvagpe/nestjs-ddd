@@ -35,5 +35,6 @@ export class User extends BaseEntity {
 
     public updatePassword(password: string) {
         this.password = password;
+        //TODO: implementar
     }
 }

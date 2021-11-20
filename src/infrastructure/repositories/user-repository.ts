@@ -5,6 +5,8 @@ import { Md5 } from 'ts-md5/dist/md5';
 
 @Injectable()
 export class UserRepository implements IUserRepository {
+
+    
     login(email: string, password: string): Promise<User> {
 
         const auth = Md5.hashStr(`${email}:${password}`)        

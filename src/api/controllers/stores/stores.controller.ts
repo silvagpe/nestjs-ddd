@@ -1,4 +1,5 @@
-import { BadRequestException, Body, Controller, Delete, Get, HttpCode, HttpStatus, Param, Post, Put, Query, Res } from '@nestjs/common';
+import { BadRequestException, Body, Controller, Delete, Get, HttpCode, HttpStatus, Param, Post, Put, Query, Res, UseGuards } from '@nestjs/common';
+import { JwtAuthGuard } from 'src/api/auth/guards/jwt-auth.guard';
 import { StoreCommand } from 'src/domain/commands/store-command';
 import { IStoreRepository } from 'src/domain/contracts/repositories/istore-repository';
 import { Store } from 'src/domain/entities/store';
@@ -12,6 +13,7 @@ export class StoresController {
         private readonly storeWorkflow: StoreWorkflow
     ) { }
 
+    @UseGuards(JwtAuthGuard)
     @Get()
     get(@Query('search') search: string): Promise<Store[]> {
 
@@ -37,7 +39,7 @@ export class StoresController {
     async update(@Param('id') id: string, @Body() command: StoreCommand): Promise<any> {
 
         return this.storeWorkflow
-            .update(command)
+            .update(id, command)
             .then(() => { return true })
             .catch(() => {
                 throw new BadRequestException(this.storeWorkflow.Errors);

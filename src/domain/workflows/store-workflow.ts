@@ -15,6 +15,11 @@ export class StoreWorkflow extends WorkflowBase {
 
         this.validateStore(command);
 
+        const storeExist = this.storeRepository.getByEmail(command.email)
+        if (storeExist){
+            this.addError("email", "email já utilizado")
+        }
+
         if (!this.isValid) {
             return Promise.reject();
         }
@@ -29,11 +34,11 @@ export class StoreWorkflow extends WorkflowBase {
         }
     }
 
-    public async update(command: StoreCommand) {
+    public async update(id:string,  command: StoreCommand) {
 
         this.validateStore(command);
 
-        const store = await this.storeRepository.getById(command.id);
+        const store = await this.storeRepository.getById(id);
         if (!store) {
             this.addError("Store", "Loja não localizada", command.email);
         }
