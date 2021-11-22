@@ -1,0 +1,48 @@
+@startuml Diagrama de classes Nextar Backoffice
+
+
+class Transaction{
+    Guid Id
+    string CustomerId    
+    DateTime RegistredAt
+    DateTime DueAt
+    DateTime PaidAt
+    DateTime UpdatedAt
+    Number AttemptCount
+    DateTime NextAttempt
+    StatusType StatusType
+    GatewayType GatewayType    
+    'Recorrência, cobrança avunlça
+    BillingType BillingType
+    'Cartão, boleto
+    TransactionType TransactionType 
+    Number Amount
+    
+    CurrencyType Currency
+    TransactionHistory[] Transactions
+}
+
+class TransactionHistory{
+    Guid Id
+    Guid TransactionId
+    DateTime RegistredAt
+    Json TransactionObject
+    Number FraudDetectorScore
+    string FraudDetectorStatus
+}
+
+class Customer{
+    Guid Id
+    string Name
+    string Email        
+    DateTime RegistredAt
+    string IntegrationId
+    TransactionHistory[] Transactions
+}
+
+class ApiKey{
+    Guid Id
+    bool Active
+    string Key            
+}
+@enduml
