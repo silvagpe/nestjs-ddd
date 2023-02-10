@@ -20,7 +20,7 @@ export class UserRepository implements IUserRepository {
     }
 
     async getById(id: string): Promise<User> {
-        return User.findOne(id)
+        return User.findOne({where:{id}})
     }
 
     public getByEmail(email: string): Promise<User> {

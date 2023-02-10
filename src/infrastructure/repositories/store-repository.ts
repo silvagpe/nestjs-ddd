@@ -6,7 +6,7 @@ import { IStoreRepository } from "src/domain/contracts/repositories/istore-repos
 export class StoreRepository implements IStoreRepository {
     
     async getById(id: string): Promise<Store> {
-        return Store.findOne(id)
+        return Store.findOne({where:{id}})
     }
 
     public getByEmail(email: string): Promise<Store> {
